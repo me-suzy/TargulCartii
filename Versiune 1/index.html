@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cos Targul Cartii - 4 carti</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f5f5f5;color:#333;padding:20px}
+.c{max-width:1000px;margin:0 auto}
+h1{text-align:center;color:#1a1a2e;margin-bottom:5px;font-size:24px}
+.sub{text-align:center;color:#666;margin-bottom:20px}
+.sum{display:flex;gap:15px;justify-content:center;margin-bottom:25px;flex-wrap:wrap}
+.cd{background:#fff;padding:15px 25px;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.1);text-align:center}
+.cd .n{font-size:28px;font-weight:bold;color:#e94560}
+.cd .l{font-size:12px;color:#888}
+.box{background:#fff;border-radius:12px;padding:25px;margin-bottom:25px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.box h2{margin-bottom:15px;font-size:20px;color:#1a1a2e}
+.steps{counter-reset:step}
+.steps li{list-style:none;position:relative;padding:12px 0 12px 50px;border-left:3px solid #e0e0e0;margin-left:15px;font-size:15px;line-height:1.6}
+.steps li:last-child{border-left-color:transparent}
+.steps li::before{counter-increment:step;content:counter(step);position:absolute;left:-17px;top:10px;width:32px;height:32px;border-radius:50%;background:#e94560;color:#fff;font-weight:bold;font-size:14px;display:flex;align-items:center;justify-content:center}
+.steps li.active{border-left-color:#e94560}
+.steps code{background:#f0f0f0;padding:3px 8px;border-radius:4px;font-size:13px;font-family:monospace}
+.steps a{color:#e94560;font-weight:bold}
+.bigbtn{display:block;width:100%;padding:18px;border:none;border-radius:10px;font-size:18px;font-weight:bold;cursor:pointer;margin-top:15px;transition:all .2s}
+.bigbtn-red{background:#e94560;color:#fff}
+.bigbtn-red:hover{background:#d63851;transform:scale(1.01)}
+.bigbtn-green{background:#27ae60;color:#fff}
+.script-area{width:100%;height:100px;background:#1a1a2e;color:#7fdbca;border:2px solid #333;border-radius:8px;padding:12px;font-family:monospace;font-size:11px;resize:vertical;margin-top:10px}
+.copied-msg{display:none;text-align:center;padding:10px;background:#27ae60;color:#fff;border-radius:8px;margin-top:10px;font-weight:bold;font-size:16px}
+table{width:100%;background:#fff;border-collapse:collapse;border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.1);margin-top:10px}
+th{background:#1a1a2e;color:#fff;padding:12px 15px;text-align:left;font-size:13px}
+td{padding:10px 15px;border-bottom:1px solid #eee;font-size:13px}
+tr:hover{background:#f8f9fa}
+td a{color:#e94560;text-decoration:none}
+td a:hover{text-decoration:underline}
+.ft{text-align:center;margin-top:20px;color:#999;font-size:12px}
+.warn{background:#fff3cd;border:1px solid #ffc107;border-radius:8px;padding:12px 15px;margin-top:15px;font-size:13px;color:#856404}
+</style>
+</head>
+<body>
+<div class="c">
+  <h1>Cos de cumparaturi - Targul Cartii</h1>
+  <p class="sub">4 carti pregatite pentru comanda</p>
+
+  <div class="sum">
+    <div class="cd"><div class="n">4</div><div class="l">Carti</div></div>
+    <div class="cd"><div class="n">58.96 LEI</div><div class="l">Total estimat</div></div>
+    <div class="cd"><div class="n">~1 min</div><div class="l">Timp adaugare</div></div>
+  </div>
+
+  <div class="box">
+    <h2>Cum comanzi (3 pasi simpli)</h2>
+    <ol class="steps">
+      <li class="active">
+        Deschide <a href="https://www.targulcartii.ro/" target="_blank">targulcartii.ro</a> si <strong>logheaza-te in cont</strong>
+      </li>
+      <li>
+        Apasa butonul <strong style="color:#e94560">COPIAZA SCRIPTUL</strong> de mai jos,
+        apoi pe targulcartii.ro apasa <code>F12</code> &rarr; tab <code>Console</code> &rarr;
+        <code>Ctrl+V</code> &rarr; <code>Enter</code>
+      </li>
+      <li>
+        Asteapta bara de progres (~1 min). Cand termina, te duce <strong>automat la cos</strong> &rarr; <strong>Plateste</strong>
+      </li>
+    </ol>
+
+    <textarea class="script-area" id="scriptArea" readonly onclick="this.select()">(async function(){
+  var P=[{"pid": "10644594", "name": "Cine-Roman"}, {"pid": "9976644", "name": "Retus"}, {"pid": "10635252", "name": "Secolul cinematografului"}, {"pid": "10642731", "name": "Cum se face teatru . Cum se face film"}];
+  var D=500,ok=0,fail=0,errs=[];
+  if(!window.location.hostname.includes('targulcartii.ro')){
+    alert('Acest script trebuie rulat pe targulcartii.ro!\nDeschide targulcartii.ro, apoi F12 &gt; Console &gt; paste.');
+    return;
+  }
+  var sd=document.createElement('div');
+  sd.style.cssText='position:fixed;bottom:0;left:0;right:0;z-index:99999;background:#1a1a2e;color:#e0e0e0;padding:12px 20px;font-family:monospace;font-size:14px;box-shadow:0 -2px 10px rgba(0,0,0,0.5)';
+  sd.innerHTML='&lt;div id="tcp"&gt;Pornire... 0/'+P.length+'&lt;/div&gt;&lt;div style="background:#333;height:6px;margin-top:8px;border-radius:3px"&gt;&lt;div id="tcf" style="background:#e94560;height:100%;width:0%;border-radius:3px;transition:width 0.3s"&gt;&lt;/div&gt;&lt;/div&gt;&lt;div id="tcc" style="margin-top:5px;font-size:11px;color:#888"&gt;&lt;/div&gt;';
+  document.body.appendChild(sd);
+  function up(m,c){document.getElementById('tcp').textContent=m;document.getElementById('tcf').style.width=((ok+fail)/P.length*100).toFixed(1)+'%';if(c)document.getElementById('tcc').textContent=c}
+  function sl(ms){return new Promise(function(r){setTimeout(r,ms)})}
+  for(var i=0;i&lt;P.length;i++){
+    var p=P[i];
+    up('Adaugare: '+(i+1)+'/'+P.length+' (OK:'+ok+' Erori:'+fail+')',p.name);
+    try{
+      var r=await fetch('/index.php?route=checkout/cart/update',{
+        method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},
+        body:'product_id='+p.pid+'&amp;quantity=1'
+      });
+      var j=await r.json();
+      if(j&amp;&amp;!j.error){ok++}else{fail++;errs.push(p.name)}
+    }catch(e){fail++;errs.push(p.name)}
+    await sl(D);
+  }
+  document.getElementById('tcf').style.background=fail&gt;0?'#e67e22':'#2ecc71';
+  document.getElementById('tcf').style.width='100%';
+  if(errs.length)console.log('Erori:',errs);
+  up('GATA! '+ok+'/'+P.length+' adaugate. Redirectionare la cos in 3s...',' ');
+  await sl(3000);
+  window.location.href='/index.php?route=checkout/cart';
+})();
+</textarea>
+    <button class="bigbtn bigbtn-red" id="copyBtn" onclick="copyScript()">COPIAZA SCRIPTUL</button>
+    <div class="copied-msg" id="copiedMsg">COPIAT! Acum mergi pe targulcartii.ro, apasa F12 &rarr; Console &rarr; Ctrl+V &rarr; Enter</div>
+
+    <button class="bigbtn bigbtn-green" id="bmBtn" onclick="prepareBookmarklet()">BUTON FARA CONSOLE (BOOKMARK)</button>
+    <div id="bmBox" style="display:none;margin-top:10px;font-size:13px;color:#555">
+      <p style="margin-bottom:6px;"><strong>O varianta si mai usoara pentru Andreea:</strong></p>
+      <ol style="margin-left:18px;padding-left:0;font-size:13px;line-height:1.5;">
+        <li>Trage butonul de mai jos in bara de bookmarks sau click dreapta &rarr; „Bookmark this link”.</li>
+        <li>Pe <strong>targulcartii.ro</strong>, deja logata, doar apasa bookmark-ul si cartile se adauga automat in cos.</li>
+      </ol>
+      <a id="bmLink" href="#"
+         style="display:inline-block;margin-top:8px;padding:10px 16px;border-radius:8px;background:#1a1a2e;color:#fff;font-weight:bold;text-decoration:none;">
+         Adauga cartile in cos
+      </a>
+    </div>
+
+    <div class="warn">
+      Scriptul adauga cartile direct in cos fara sa incarce pagini. E rapid (~1 min pentru 4 carti).
+      Dupa ce vezi <strong>GATA!</strong> in bara de sus, apasa F5 si finalizeaza comanda.
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>Lista completa (4 carti)</h2>
+    <table>
+      <thead><tr><th>#</th><th>Titlu</th><th>ISBN</th><th>Stare</th><th>Pret</th></tr></thead>
+      <tbody><tr><td>1</td><td><a href="https://www.targulcartii.ro/ioan-caramazan/cine-roman-junimea-2002-10644594" target="_blank">Cine-Roman</a></td><td>973-37-0676-7</td><td>Buna</td><td>5,99LEI</td></tr>
+<tr><td>2</td><td><a href="https://www.targulcartii.ro/karl-sutterlin/retus-tehnica-1974-9976644" target="_blank">Retus</a></td><td>KSUTRETTE1974</td><td>Buna</td><td>4,99LEI</td></tr>
+<tr><td>3</td><td><a href="https://www.targulcartii.ro/cristina-corciovescu/secolul-cinematografului?an=1989&editura=Stiintifica si Enciclopedica&coperta=Cartonata (hardcover)&pid=217536" target="_blank">Secolul cinematografului</a></td><td>973-29-0001-6</td><td>Acceptabila</td><td>6,99LEI</td></tr>
+<tr><td>4</td><td><a href="https://www.targulcartii.ro/karel-capek/cum-se-face-teatru-cum-se-face-film-meridiane-1971-10642731" target="_blank">Cum se face teatru . Cum se face film</a></td><td>KCAPCUMME1971</td><td>Buna</td><td>40,99LEI</td></tr></tbody>
+    </table>
+  </div>
+
+  <p class="ft">Product ID-urile au fost pre-extrase. Scriptul face doar POST-uri directe = viteza maxima.</p>
+</div>
+
+<script>
+function copyScript(){
+  var ta=document.getElementById('scriptArea');
+  ta.select();
+  ta.setSelectionRange(0,99999);
+  navigator.clipboard.writeText(ta.value).then(function(){
+    document.getElementById('copyBtn').style.display='none';
+    document.getElementById('copiedMsg').style.display='block';
+    setTimeout(function(){
+      document.getElementById('copyBtn').style.display='block';
+      document.getElementById('copiedMsg').style.display='none';
+    },5000);
+  });
+}
+function prepareBookmarklet(){
+  var ta=document.getElementById('scriptArea');
+  var code=ta.value.replace(/\s+/g,' ');
+  var link=document.getElementById('bmLink');
+  link.href='javascript:'+code;
+  document.getElementById('bmBox').style.display='block';
+}
+</script>
+</body>
+</html>
