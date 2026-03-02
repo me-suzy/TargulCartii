@@ -1,0 +1,38 @@
+[
+  {
+    "row_id": "10644594",
+    "url": "https://www.targulcartii.ro/ioan-caramazan/cine-roman-junimea-2002-10644594",
+    "name": "Cine-Roman",
+    "isbn": "973-37-0676-7",
+    "condition": "Buna",
+    "price": "5,99LEI",
+    "product_id": "10644594"
+  },
+  {
+    "row_id": "9976644",
+    "url": "https://www.targulcartii.ro/karl-sutterlin/retus-tehnica-1974-9976644",
+    "name": "Retus",
+    "isbn": "KSUTRETTE1974",
+    "condition": "Buna",
+    "price": "4,99LEI",
+    "product_id": "9976644"
+  },
+  {
+    "row_id": "10635252",
+    "url": "https://www.targulcartii.ro/cristina-corciovescu/secolul-cinematografului?an=1989&editura=Stiintifica si Enciclopedica&coperta=Cartonata (hardcover)&pid=217536",
+    "name": "Secolul cinematografului",
+    "isbn": "973-29-0001-6",
+    "condition": "Acceptabila",
+    "price": "6,99LEI",
+    "product_id": "10635252"
+  },
+  {
+    "row_id": "10642731",
+    "url": "https://www.targulcartii.ro/karel-capek/cum-se-face-teatru-cum-se-face-film-meridiane-1971-10642731",
+    "name": "Cum se face teatru . Cum se face film",
+    "isbn": "KCAPCUMME1971",
+    "condition": "Buna",
+    "price": "40,99LEI",
+    "product_id": "10642731"
+  }
+]
